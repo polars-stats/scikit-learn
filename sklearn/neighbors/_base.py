@@ -389,6 +389,13 @@ class NeighborsBase(MultiOutputMixin, BaseEstimator, metaclass=ABCMeta):
         "n_jobs": [Integral, None],
     }
 
+    # TODO(rnarkk) Delete
+    def _validate_data(self, X, y=None, **kwargs):
+        if y:
+            return X, y
+        else:
+            return X
+
     @abstractmethod
     def __init__(
         self,
